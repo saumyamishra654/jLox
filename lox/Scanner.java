@@ -1,4 +1,4 @@
-package com.craftinginterpreters.lox;
+package com.sjlox.lox;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,7 +7,7 @@ import java.util.Map;
 
 import lox.Lox;
 
-import static com.craftinginterpreters.lox.TokenType.*; //static import to prevent TokenType from having to be written everywhere
+import static com.sjlox.lox.TokenType.*; //static import to prevent TokenType from having to be written everywhere
 
 class Scanner {
   private static final Map<String, TokenType> keywords;

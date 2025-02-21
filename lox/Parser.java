@@ -83,10 +83,13 @@ class Parser {
     if (match(RETURN)) return returnStatement();
     if (match(WHILE)) return whileStatement();
     if (match(SWITCH)) return switchStatment();
+    if (match(BREAK)) return breakStatement();
     if (match(LEFT_BRACE)) return new Stmt.Block(block());
 
     return expressionStatement();
   }
+
+
 
 // parses a for loop statement
   private Stmt forStatement() {
@@ -223,6 +226,13 @@ class Parser {
   consume(RIGHT_BRACE, "Expect '}' after switch cases.");
   return new Stmt.Switch(condition, cases, defaultCase);
 }
+
+private Stmt breakStatement() {
+    Token keyword = previous();
+    consume(SEMICOLON, "Expect ';' after 'break'.");
+    return new Stmt.Break(keyword);
+}
+
 
   //parse expresssion
   private Stmt expressionStatement() {
