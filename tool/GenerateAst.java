@@ -32,18 +32,18 @@ public class GenerateAst {
 
     // define the abstract syntax tree (ast) for statements
     defineAst(outputDir, "Stmt", Arrays.asList(
-      "Block      : List<Stmt> statements", // block of statements (curly braces)
-      "Class      : Token name, Expr.Variable superclass," +
-                  " List<Stmt.Function> methods", // class declaration
-      "Expression : Expr expression", // a statement that evaluates an expression
-      "Function   : Token name, List<Token> params," +
-                  " List<Stmt> body", // function declaration
-      "If         : Expr condition, Stmt thenBranch," +
-                  " Stmt elseBranch", // if-else statement
-      "Print      : Expr expression", // print statement
-      "Return     : Token keyword, Expr value", // return statement inside functions
-      "Var        : Token name, Expr initializer", // variable declaration
-      "While      : Expr condition, Stmt body" // while loop
+        "Block      : List<Stmt> statements",
+        "Class      : Token name, Expr.Variable superclass, List<Stmt.Function> methods",
+        "Expression : Expr expression",
+        "Function   : Token name, List<Token> params, List<Stmt> body",
+        "If         : Expr condition, Stmt thenBranch, Stmt elseBranch",
+        "Print      : Expr expression",
+        "Return     : Token keyword, Expr value",
+        "Var        : Token name, Expr initializer",
+        "While      : Expr condition, Stmt body",
+        "Switch     : Expr condition, List<Stmt.Case> cases, Stmt defaultCase",
+        "Case       : Expr value, List<Stmt> statements",
+        "Default    : List<Stmt> statements"
     ));
   }
 
