@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import lox.Lox;
+import com.sjlox.lox.Lox;
 
 import static com.sjlox.lox.TokenType.*;
 
@@ -82,7 +82,7 @@ class Parser {
     if (match(PRINT)) return printStatement();
     if (match(RETURN)) return returnStatement();
     if (match(WHILE)) return whileStatement();
-    if (match(SWITCH)) return switchStatment();
+    if (match(SWITCH)) return switchStatement();
     if (match(BREAK)) return breakStatement();
     if (match(LEFT_BRACE)) return new Stmt.Block(block());
 
@@ -199,7 +199,7 @@ class Parser {
     consume(LEFT_BRACE, "Expect '{' before switch cases.");
 
     List<Stmt.Case> cases = new ArrayList<>();
-    Stmt defaultCase = null;
+    Stmt.Default defaultCase = null;
 
     while (!check(RIGHT_BRACE) && !isAtEnd()) {
         if (match(CASE)) {
@@ -216,22 +216,22 @@ class Parser {
             while (!check(RIGHT_BRACE) && !isAtEnd()) {
                 statements.add(statement());
             }
-            defaultCase = new Stmt.Default(statements);
+            defaultCase = new Stmt.Default(statements); // Correctly create a Stmt.Default object
             break;
         } else {
             error(peek(), "Expect 'case' or 'default' in switch.");
         }
     }
 
-  consume(RIGHT_BRACE, "Expect '}' after switch cases.");
-  return new Stmt.Switch(condition, cases, defaultCase);
-}
+    consume(RIGHT_BRACE, "Expect '}' after switch cases.");
+    return new Stmt.Switch(condition, cases, defaultCase); // Pass the Stmt.Default object
+  }
 
-private Stmt breakStatement() {
-    Token keyword = previous();
-    consume(SEMICOLON, "Expect ';' after 'break'.");
-    return new Stmt.Break(keyword);
-}
+  private Stmt breakStatement() {
+      Token keyword = previous();
+      consume(SEMICOLON, "Expect ';' after 'break'.");
+      return new Stmt.Break(keyword);
+  }
 
 
   //parse expresssion

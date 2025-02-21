@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import lox.Lox;
+import com.sjlox.lox.Lox;
 
 import static com.sjlox.lox.TokenType.*; //static import to prevent TokenType from having to be written everywhere
 
@@ -72,6 +72,7 @@ class Scanner {
       case '-': addToken(MINUS); break;
       case '+': addToken(PLUS); break;
       case ';': addToken(SEMICOLON); break;
+      case ':': addToken(COLON); break;
       case '*': addToken(STAR); break; // [slash]
       //cases where second character needs to be looked for: operators!
       case '!':

@@ -1,9 +1,9 @@
-package lox;
+package com.sjlox.lox;
 
 enum TokenType {
   //single tokens
   LEFT_PAREN, RIGHT_PAREN, LEFT_BRACE, RIGHT_BRACE,
-  COMMA, DOT, MINUS, PLUS, SEMICOLON, SLASH, STAR,
+  COMMA, DOT, MINUS, PLUS, SEMICOLON, SLASH, STAR, COLON,
 
   //double character tokens
   BANG, BANG_EQUAL,

@@ -3,6 +3,7 @@ package com.sjlox.lox;
 import java.util.HashMap;
 import java.util.Map;
 
+
 class Environment {
   final Environment enclosing; //giving reference to the environment it is envlosed in
   private final Map<String, Object> values = new HashMap<>(); // map to store bindings
