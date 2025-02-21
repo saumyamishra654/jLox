@@ -43,7 +43,8 @@ public class GenerateAst {
         "While      : Expr condition, Stmt body",
         "Switch     : Expr condition, List<Stmt.Case> cases, Stmt defaultCase",
         "Case       : Expr value, List<Stmt> statements",
-        "Default    : List<Stmt> statements"
+        "Default    : List<Stmt> statements",
+        "Break      : Token keyword"
     ));
   }
 
